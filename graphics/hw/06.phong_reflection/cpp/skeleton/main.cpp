@@ -545,6 +545,29 @@ void init_shader_program()
   // TODO: get locations of the GPU uniform/attribute variables 
   //       for implementing Phong reflection model
 
+  // uniform - transform matrices
+  loc_u_view_matrix = glGetUniformLocation(program, "u_view_matrix");
+  loc_u_model_matrix = glGetUniformLocation(program, "u_model_matrix");
+  loc_u_normal_matrix = glGetUniformLocation(program, "u_normal_matrix");
+
+  // uniform - lighting and camera
+  loc_u_camera_position = glGetUniformLocation(program, "u_camera_position");
+  loc_u_light_position = glGetUniformLocation(program, "u_light_position");
+
+  // uniform - light property
+  loc_u_light_ambient = glGetUniformLocation(program, "u_light_ambient");
+  loc_u_light_diffuse = glGetUniformLocation(program, "u_light_diffuse");
+  loc_u_light_specular = glGetUniformLocation(program, "u_light_specular");
+
+  // uniform - object material property
+  loc_u_obj_ambient = glGetUniformLocation(program, "u_obj_ambient");
+  loc_u_obj_diffuse = glGetUniformLocation(program, "u_obj_diffuse");
+  loc_u_obj_specular = glGetUniformLocation(program, "u_obj_specular");
+  loc_u_obj_shininess = glGetUniformLocation(program, "u_obj_shininess");
+
+  // attribute - vertex normal
+  loc_a_normal = glGetAttribLocation(program, "a_normal");
+
 }
 
 void render_object()
@@ -561,12 +584,39 @@ void render_object()
 
   // TODO : send uniform for camera & light to GPU
 
+
+  glm::vec3 camera_position = camera.position();
+  glm::vec3 light_position = g_light.pos;
+
+  glUniform3fv(loc_u_light_position, 1, glm::value_ptr(light_position));
+  glUniform3fv(loc_u_camera_position, 1, glm::value_ptr(camera_position));
+
+  glUniform3fv(loc_u_light_ambient, 1, glm::value_ptr(g_light.ambient));
+  glUniform3fv(loc_u_light_diffuse, 1, glm::value_ptr(g_light.diffuse));
+  glUniform3fv(loc_u_light_specular, 1, glm::value_ptr(g_light.specular));
+
+
+
   for (std::size_t i = 0; i < g_models.size(); ++i)
   {
     Model& model = g_models[i];
 
     // TODO : set mat_model, mat_normal, mat_PVM 
     // TODO : send uniform data for model to GPU
+
+    glm::mat4 model_mat = model.get_model_matrix();
+    glm::mat4 view_mat = camera.get_view_matrix();
+    glm::mat4 proj_mat = camera.get_projection_matrix();
+
+    glm::mat4 PVM_mat = proj_mat * view_mat * model_mat;
+    glm::mat3 normal_mat = glm::transpose(glm::inverse(glm::mat3(model_mat)));
+
+    glUniformMatrix4fv(loc_u_model_matrix, 1, GL_FALSE, glm::value_ptr(model_mat));
+    glUniformMatrix4fv(loc_u_view_matrix, 1, GL_FALSE, glm::value_ptr(view_mat));
+    glUniformMatrix4fv(loc_u_PVM, 1, GL_FALSE, glm::value_ptr(PVM_mat));
+    glUniformMatrix3fv(loc_u_normal_matrix, 1, GL_FALSE, glm::value_ptr(normal_mat));
+
+
     
     model.draw(loc_a_position, loc_a_normal, loc_u_obj_ambient, loc_u_obj_diffuse, loc_u_obj_specular, loc_u_obj_shininess);
   }

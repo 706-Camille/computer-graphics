@@ -11,6 +11,7 @@ public:
         ambient(0.0f),
         diffuse(1.0f),
         specular(0.5f) {}
+
 public:
     glm::vec3   ambient;        // ambient light (r, g, b)
     glm::vec3   diffuse;        // diffuse light (r, g, b)
