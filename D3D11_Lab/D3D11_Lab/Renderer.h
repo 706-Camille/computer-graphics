@@ -1,11 +1,18 @@
 #pragma once
 #include <d3d11.h>
 #include <DirectXMath.h>
+#include "Types.h"
 
 
 
 class URenderer
 {
+    struct FConstants
+    {
+        FVector Offset;
+        float Pad;
+    };
+
 public:
     // Direct3D 11 장치(Device)와 장치 컨텍스트(Device Context) 및 스왑 체인(Swap Chain)을 관리하기 위한 포인터들
     ID3D11Device* Device = nullptr; // GPU와 통신하기 위한 Direct3D 장치
@@ -34,12 +41,15 @@ public:
     void CreateFrameBuffer();
     void CreateRasterizerState();
     void CreateShader();
+    ID3D11Buffer* CreateVertexBuffer(FVertexSimple* vertices, UINT byteWidth);
+    void CreateConstantBuffer();
 
     // Render
     void SwapBuffer();
     void Prepare();
     void PrepareShader();
     void RenderPrimitive(ID3D11Buffer* pBuffer, UINT numVetices);
+    void UpdateConstant(FVector Offset);
 
     // Release
     void Release();
@@ -47,6 +57,8 @@ public:
     void ReleaseFrameBuffer();
     void ReleaseRasterizerState();
     void ReleaseShader();
+    void ReleaseVertexBuffer(ID3D11Buffer* vertexBuffer);
+    void ReleaseConstantBuffer();
     
 };
 

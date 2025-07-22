@@ -7,16 +7,24 @@
       "RelativeMoniker": "D:0:0:{550C64A5-2032-4106-8508-BFF1936A170D}|D3D11_Lab\\D3D11_Lab.vcxproj|solutionrelative:D3D11_Lab\\Renderer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{550C64A5-2032-4106-8508-BFF1936A170D}|D3D11_Lab\\D3D11_Lab.vcxproj|C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\Renderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{550C64A5-2032-4106-8508-BFF1936A170D}|D3D11_Lab\\D3D11_Lab.vcxproj|solutionrelative:D3D11_Lab\\Renderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{550C64A5-2032-4106-8508-BFF1936A170D}|D3D11_Lab\\D3D11_Lab.vcxproj|C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{550C64A5-2032-4106-8508-BFF1936A170D}|D3D11_Lab\\D3D11_Lab.vcxproj|solutionrelative:D3D11_Lab\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{550C64A5-2032-4106-8508-BFF1936A170D}|D3D11_Lab\\D3D11_Lab.vcxproj|C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\Renderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{550C64A5-2032-4106-8508-BFF1936A170D}|D3D11_Lab\\D3D11_Lab.vcxproj|solutionrelative:D3D11_Lab\\Renderer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{550C64A5-2032-4106-8508-BFF1936A170D}|D3D11_Lab\\D3D11_Lab.vcxproj|C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\Types.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{550C64A5-2032-4106-8508-BFF1936A170D}|D3D11_Lab\\D3D11_Lab.vcxproj|solutionrelative:D3D11_Lab\\Types.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{550C64A5-2032-4106-8508-BFF1936A170D}|D3D11_Lab\\D3D11_Lab.vcxproj|C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\Geometry.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{550C64A5-2032-4106-8508-BFF1936A170D}|D3D11_Lab\\D3D11_Lab.vcxproj|solutionrelative:D3D11_Lab\\Geometry.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{550C64A5-2032-4106-8508-BFF1936A170D}|D3D11_Lab\\D3D11_Lab.vcxproj|C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\Geometry.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{550C64A5-2032-4106-8508-BFF1936A170D}|D3D11_Lab\\D3D11_Lab.vcxproj|solutionrelative:D3D11_Lab\\Geometry.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{550C64A5-2032-4106-8508-BFF1936A170D}|D3D11_Lab\\D3D11_Lab.vcxproj|C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\ShaderW0.hlsl||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -34,19 +42,46 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
+              "Title": "Geometry.cpp",
+              "DocumentMoniker": "C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\Geometry.cpp",
+              "RelativeDocumentMoniker": "D3D11_Lab\\Geometry.cpp",
+              "ToolTip": "C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\Geometry.cpp",
+              "RelativeToolTip": "D3D11_Lab\\Geometry.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-07-22T12:25:38.527Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Geometry.h",
+              "DocumentMoniker": "C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\Geometry.h",
+              "RelativeDocumentMoniker": "D3D11_Lab\\Geometry.h",
+              "ToolTip": "C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\Geometry.h",
+              "RelativeToolTip": "D3D11_Lab\\Geometry.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-07-22T12:25:31.321Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\main.cpp",
               "RelativeDocumentMoniker": "D3D11_Lab\\main.cpp",
               "ToolTip": "C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\main.cpp",
               "RelativeToolTip": "D3D11_Lab\\main.cpp",
-              "ViewState": "AgIAAF0AAAAAAAAAAADwv3oAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAHsAAAAAAAAAAAASwJgAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-07-21T14:42:16.47Z"
+              "WhenOpened": "2025-07-21T14:42:16.47Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -56,14 +91,14 @@
               "RelativeDocumentMoniker": "D3D11_Lab\\Renderer.cpp",
               "ToolTip": "C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\Renderer.cpp",
               "RelativeToolTip": "D3D11_Lab\\Renderer.cpp",
-              "ViewState": "AgIAAOkAAAAAAAAAAAAAAOYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-07-21T09:50:16.913Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Debug.h",
               "DocumentMoniker": "C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\Debug.h",
               "RelativeDocumentMoniker": "D3D11_Lab\\Debug.h",
@@ -81,33 +116,36 @@
               "RelativeDocumentMoniker": "D3D11_Lab\\Types.h",
               "ToolTip": "C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\Types.h",
               "RelativeToolTip": "D3D11_Lab\\Types.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-07-21T11:18:38.413Z"
+              "WhenOpened": "2025-07-21T11:18:38.413Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 6,
               "Title": "ShaderW0.hlsl",
               "DocumentMoniker": "C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\ShaderW0.hlsl",
               "RelativeDocumentMoniker": "D3D11_Lab\\ShaderW0.hlsl",
               "ToolTip": "C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\ShaderW0.hlsl",
               "RelativeToolTip": "D3D11_Lab\\ShaderW0.hlsl",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-07-21T10:36:16.483Z"
+              "WhenOpened": "2025-07-21T10:36:16.483Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Renderer.h",
               "DocumentMoniker": "C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\Renderer.h",
               "RelativeDocumentMoniker": "D3D11_Lab\\Renderer.h",
               "ToolTip": "C:\\Users\\rlthr\\Desktop\\computer_graphics\\D3D11_Lab\\D3D11_Lab\\Renderer.h",
               "RelativeToolTip": "D3D11_Lab\\Renderer.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAADQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAB4AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-07-21T09:49:01.082Z"
+              "WhenOpened": "2025-07-21T09:49:01.082Z",
+              "EditorCaption": ""
             }
           ]
         }

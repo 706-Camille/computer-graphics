@@ -1,6 +1,5 @@
 #include "Renderer.h"
 #include <d3dcompiler.h>
-#include "Types.h"
 #include "assert.h"
 #include "Debug.h";
 
@@ -113,6 +112,35 @@ void URenderer::CreateShader()
     pixelshaderCSO->Release();
 }
 
+ID3D11Buffer* URenderer::CreateVertexBuffer(FVertexSimple* vertices, UINT byteWidth)
+{
+
+    D3D11_BUFFER_DESC vertexbufferdesc = {};
+    vertexbufferdesc.ByteWidth = byteWidth;
+    vertexbufferdesc.Usage = D3D11_USAGE_IMMUTABLE;
+    vertexbufferdesc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+
+    D3D11_SUBRESOURCE_DATA vertexbufferSRD = { vertices };
+
+    ID3D11Buffer* vertexBuffer;
+
+    Device->CreateBuffer(&vertexbufferdesc, &vertexbufferSRD, &vertexBuffer);
+
+    return vertexBuffer;
+}
+
+void URenderer::CreateConstantBuffer()
+{
+    D3D11_BUFFER_DESC constantbufferdesc = {};
+    constantbufferdesc.ByteWidth = sizeof(FConstants) + 0xf & 0xfffffff0; // ensure constant buffer size is multiple of 16 bytes
+    constantbufferdesc.Usage = D3D11_USAGE_DYNAMIC; // will be updated from CPU every frame
+    constantbufferdesc.CPUAccessFlags = D3D11_CPU_ACCESS_WRITE;
+    constantbufferdesc.BindFlags = D3D11_BIND_CONSTANT_BUFFER;
+
+    Device->CreateBuffer(&constantbufferdesc, nullptr, &ConstantBuffer);
+
+}
+
 // 스왑 체인의 백 버퍼와 프론트 버퍼를 교체하여 화면에 출력
 void URenderer::SwapBuffer()
 {
@@ -137,6 +165,11 @@ void URenderer::PrepareShader()
     DeviceContext->VSSetShader(SimpleVertexShader, nullptr, 0);
     DeviceContext->PSSetShader(SimplePixelShader, nullptr, 0);
     DeviceContext->IASetInputLayout(SimpleInputLayout);
+
+    if (ConstantBuffer)
+    {
+        DeviceContext->VSSetConstantBuffers(0, 1, &ConstantBuffer);
+    }
 }
 
 void URenderer::RenderPrimitive(ID3D11Buffer* pBuffer, UINT numVertices)
@@ -145,6 +178,22 @@ void URenderer::RenderPrimitive(ID3D11Buffer* pBuffer, UINT numVertices)
     DeviceContext->IASetVertexBuffers(0, 1, &pBuffer, &Stride, &offset);
 
     DeviceContext->Draw(numVertices, 0);
+}
+
+void URenderer::UpdateConstant(FVector Offset)
+{
+    if (ConstantBuffer)
+    {
+        D3D11_MAPPED_SUBRESOURCE constantbufferMSR;
+
+        DeviceContext->Map(ConstantBuffer, 0, D3D11_MAP_WRITE_DISCARD, 0, &constantbufferMSR);
+        FConstants* constants = (FConstants*)constantbufferMSR.pData;
+        {
+            constants->Offset = Offset;
+        }
+
+        DeviceContext->Unmap(ConstantBuffer, 0);
+    }
 }
 
 
@@ -229,5 +278,19 @@ void URenderer::ReleaseShader()
         SimpleVertexShader = nullptr;
     }
 
+}
+
+void URenderer::ReleaseVertexBuffer(ID3D11Buffer* vertexBuffer)
+{
+    vertexBuffer->Release();
+}
+
+void URenderer::ReleaseConstantBuffer()
+{
+    if (ConstantBuffer)
+    {
+        ConstantBuffer->Release();
+        ConstantBuffer = nullptr;
+    }
 }
 
