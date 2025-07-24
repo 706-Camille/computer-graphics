@@ -100,9 +100,22 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 	// 생성
 	
-	ETypePrimitive typePrimitive = ETypePrimitive::EPT_Triangle;
+	ETypePrimitive typePrimitive = ETypePrimitive::EPT_Sphere;
 
 	FVector offset(0.0f);
+	FVector Velocity(0.0f);
+
+	const float leftBorder = -1.0f;
+	const float rightBorder = 1.0f;
+	const float topBorder = 1.0f;
+	const float bottomBorder = -1.0f;
+	const float sphereRadius = 1.0f;
+
+	bool bBoundBallToScreen = true;
+	bool bPinballMovement = true;
+	Velocity.x = ((float)(rand() % 100 - 50)) * 0.001f;
+	Velocity.y = ((float)(rand() % 100 - 50)) * 0.001f;
+
 
 	// Main Loop (Quit Message가 들어오기 전까지 아래 Loop를 무한히 실행하게 됨)
 	while (bIsExit == false)
@@ -132,7 +145,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 					offset.x -= 0.01f;
 				}
 				if (msg.wParam == VK_RIGHT)
-				{
+				{	
 					offset.x += 0.01f;
 				}
 				if (msg.wParam == VK_UP)
@@ -144,6 +157,36 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 					offset.y -= 0.01f;
 				}
 			}
+		}
+
+		if (bPinballMovement)
+		{
+			offset.x += Velocity.x;
+			offset.y += Velocity.y;
+			offset.z += Velocity.z;
+
+			float renderRadius = sphereRadius * scaleMod;
+
+			if (offset.x <= leftBorder + renderRadius)
+			{
+				Velocity.x *= -1.0f;
+			}
+
+			if (offset.x >= rightBorder - renderRadius)
+			{
+				Velocity.x *= -1.0f;
+			}
+
+			if (offset.y <= bottomBorder + renderRadius)
+			{
+				Velocity.y *= -1.0f;
+			}
+
+			if (offset.y >= topBorder - renderRadius)
+			{
+				Velocity.y *= -1.0f;
+			}
+						
 		}
 
 		////////////////////////////////////////////
@@ -177,7 +220,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 		ImGui::Text("Hello Jungle World");
 
-		if (ImGui::Button("Change Primitive"))
+		/*if (ImGui::Button("Change Primitive"))
 		{
 			switch (typePrimitive)
 			{
@@ -185,13 +228,16 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 				typePrimitive = EPT_Cube;
 				break;
 			case EPT_Cube:
-				typePrimitive = EPT_Sphere;
+				typePrimitive = EPT_Sphere;	
 				break;
 			case EPT_Sphere:
 				typePrimitive = EPT_Triangle;
 				break;
 			}
-		}
+		}*/
+
+		ImGui::Checkbox("Bound Ball To Screen", &bBoundBallToScreen);
+		ImGui::Checkbox("Pinball Movemnet", &bPinballMovement);
 		ImGui::End();
 		ImGui::Render();
 		ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
